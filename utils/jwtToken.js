@@ -1,7 +1,9 @@
 export const sendToken = (user, statusCode, res, message) => {
   const token = user.getJWTToken();
   const options = {
-    httpOnly: true, // Set httpOnly to true
+    httpOnly: true,
+    secure: true,
+    sameSite: "None" // Set httpOnly to true
   };
 
   res.status(statusCode).cookie("token", token, options).json({
