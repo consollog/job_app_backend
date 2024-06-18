@@ -12,13 +12,10 @@ import fileUpload from "express-fileupload";
 const app = express();
 dotenv.config();
 
-app.use(
-  cors({
-    origin:process.env.CORS_ORIGIN,
-    method: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+
+app.use(cors({
+  origin: process.env.CORS_ORIGIN
+}));
 
 app.use(cookieParser());
 app.use(express.json());
